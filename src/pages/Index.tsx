@@ -33,10 +33,7 @@ const Index = () => {
   ];
 
   const prices = [
-    { service: 'Первичная консультация', duration: '60 минут', price: '5000' },
-    { service: 'Повторный прием', duration: '45 минут', price: '4000' },
-    { service: 'Детский прием', duration: '30 минут', price: '3500' },
-    { service: 'Комплексная диагностика', duration: '90 минут', price: '7000' }
+    { service: 'Первичный прием', duration: '60 минут', price: '15000 ₸' }
   ];
 
   const reviews = [
