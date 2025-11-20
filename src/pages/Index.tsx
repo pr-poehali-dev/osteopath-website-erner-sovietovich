@@ -12,27 +12,24 @@ const Index = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const services = [
-    {
-      icon: 'Hand',
-      title: 'Мануальная терапия',
-      description: 'Комплексная работа с опорно-двигательным аппаратом для восстановления баланса тела'
-    },
-    {
-      icon: 'Heart',
-      title: 'Висцеральная остеопатия',
-      description: 'Работа с внутренними органами для улучшения их функционирования'
-    },
-    {
-      icon: 'Brain',
-      title: 'Краниосакральная терапия',
-      description: 'Мягкая техника работы с черепом и крестцом для гармонизации нервной системы'
-    },
-    {
-      icon: 'Activity',
-      title: 'Биодинамика',
-      description: 'Глубокая работа с естественными ритмами организма'
-    }
+  const methodComponents = [
+    { icon: 'Hand', title: 'Остеопатия' },
+    { icon: 'Heart', title: 'Висцеральный массаж' },
+    { icon: 'Target', title: 'Точечное воздействие (восточная медицина)' },
+    { icon: 'Music', title: 'Звуковая терапия' }
+  ];
+
+  const benefits = [
+    { icon: 'ShieldCheck', title: 'Устраняет хронические боли' },
+    { icon: 'Scale', title: 'Восстанавливает баланс организма' },
+    { icon: 'Sparkles', title: 'Открывает энергетические каналы' },
+    { icon: 'Smile', title: 'Возвращает радость жизни' }
+  ];
+
+  const sessionSteps = [
+    { icon: 'Search', title: 'Диагностика', description: 'Полное обследование состояния организма' },
+    { icon: 'Clock', title: 'Длительность 1 час', description: 'Комфортный темп работы' },
+    { icon: 'TrendingUp', title: 'Первые результаты', description: 'После 1-2 сеансов' }
   ];
 
   const prices = [
@@ -145,32 +142,77 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-20 px-4">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Услуги</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Использую современные остеопатические техники для комплексного восстановления организма
+      <section id="services" className="py-20 px-4 bg-gradient-to-b from-background to-secondary/30">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Авторская методика биодинамики</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Моя авторская методика биодинамики помогает там, когда медицина бессильна
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <Card 
-                key={index} 
-                className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardHeader>
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                    <Icon name={service.icon as any} className="text-accent" size={24} />
+
+          <Card className="mb-12 border-accent/20">
+            <CardHeader>
+              <CardTitle className="text-2xl text-center">Методика включает:</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {methodComponents.map((item, index) => (
+                  <div 
+                    key={index}
+                    className="flex flex-col items-center text-center p-4 rounded-lg bg-accent/5 hover:bg-accent/10 transition-colors"
+                  >
+                    <div className="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mb-3">
+                      <Icon name={item.icon as any} className="text-accent" size={26} />
+                    </div>
+                    <p className="font-medium text-primary">{item.title}</p>
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-primary text-center mb-8">Что даёт биодинамика?</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {benefits.map((benefit, index) => (
+                <Card 
+                  key={index}
+                  className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardContent className="flex items-center p-6">
+                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                      <Icon name={benefit.icon as any} className="text-accent" size={24} />
+                    </div>
+                    <p className="text-lg font-medium text-primary">{benefit.title}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-3xl font-bold text-primary text-center mb-8">Как проходит сеанс?</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              {sessionSteps.map((step, index) => (
+                <Card 
+                  key={index}
+                  className="text-center hover:shadow-lg transition-all duration-300 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.15}s` }}
+                >
+                  <CardHeader>
+                    <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Icon name={step.icon as any} className="text-accent" size={28} />
+                    </div>
+                    <CardTitle className="text-xl">{step.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base">{step.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
