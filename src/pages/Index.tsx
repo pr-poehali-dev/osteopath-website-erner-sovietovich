@@ -264,6 +264,26 @@ const Index = () => {
               ernar@osteopat.ru
             </a>
           </div>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+            <a 
+              href="https://chat.whatsapp.com/JdS7CipprOuGoFpzuhZeEa" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-lg hover:text-accent transition-colors bg-white/10 px-6 py-3 rounded-lg hover:bg-white/20"
+            >
+              <Icon name="MessageCircle" size={22} className="mr-2" />
+              Чат WhatsApp
+            </a>
+            <a 
+              href="https://t.me/yernarpotok" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-lg hover:text-accent transition-colors bg-white/10 px-6 py-3 rounded-lg hover:bg-white/20"
+            >
+              <Icon name="Send" size={22} className="mr-2" />
+              Telegram канал
+            </a>
+          </div>
           <div className="flex items-center justify-center text-lg opacity-90">
             <Icon name="MapPin" size={24} className="mr-2" />
             г. Москва, ул. Примерная, д. 10
