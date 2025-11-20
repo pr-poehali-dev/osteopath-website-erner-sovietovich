@@ -241,7 +241,7 @@ const Index = () => {
                       </p>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-accent">{item.price} ₽</div>
+                      <div className="text-2xl font-bold text-accent">{item.price}</div>
                     </div>
                   </div>
                 ))}
